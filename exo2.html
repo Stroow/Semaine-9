@@ -1,0 +1,58 @@
+<!doctype html>
+<html >
+   <head >
+    <meta  charset="utf-8"/>   
+    <link  rel stylesheet href="style.css"/>
+    <title >Exercice2 semaine9</title>
+         
+         
+      <div id="container"> 
+ 
+        <input id="texte" placeholder="texte">
+        <button id="ajouter">ADD</button>
+        <button id="supprimer">CANCEL</button>
+    
+        <ul id="liste">
+        </ul>
+
+      </div>
+    
+  </head>  
+    
+  <body >
+    
+  <script >
+  var $liste = document.getElementById("liste");
+  var $texte = document.getElementById("texte");
+  var $ajouter = document.getElementById("ajouter");
+  var $supprimer=document.getElementById("supprimer");
+  
+  var myArray = ["Zoé Lancel", "Sabrina D", "David Jemes"];
+function afficherListe() {
+  var elements = "";
+    for (i = 0; i < myArray.length; i++) {
+       elements += "<li>" + myArray[i] + "</li>";
+    }
+    $liste.innerHTML = elements;
+}
+function ajouter() {
+    myArray.push($texte.value);
+    afficherListe();
+}
+function supprimer(){
+    myArray.pop($texte.value);
+    afficherListe();
+}
+$ajouter.onclick = ajouter;
+afficherListe(); 
+$supprimer.onclick = supprimer;
+afficherListe();
+     
+  </script>       
+        
+  </body>
+
+  <script src="/_static/preview/livecss.js"></script>
+        
+</html>
+

@@ -1,0 +1,75 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+            <meta charset="utf-8">
+            <title>Exercice1 Semaine 9</title>
+    </head>
+    <body>
+         
+    <input id="prenom" placeholder="Prénom" />
+    <input id="nom" placeholder="Nom" />
+    <input id="numero" placeholder="Numéro" />
+    <button id="ajouter">Ajouter</button>
+    
+    <ul id="liste">
+       
+    </ul>     
+    <script>
+      
+        
+    var $liste = document.getElementById("liste");
+    var $prenom = document.getElementById("prenom");
+    var $nom = document.getElementById("nom");
+    var $numero = document.getElementById("numero");
+    var $ajouter = document.getElementById("ajouter");  
+    
+    var contacts = [{
+     prenom: "Marc",
+        nom: "Antoine",
+        numero: "0606060606"},
+ 
+    {prenom: "Marie",
+        nom: "Antoinette",
+        numero: "0606060607"
+    },
+
+    {prenom: "Elisa",
+        nom: "Bukwald",
+        numero: "0606060608"
+    },
+
+    {prenom: "Camille",
+        nom: "Lestrad",
+        numero: "0606060609"
+    },
+
+    {prenom: "Jane",
+        nom: "Eléou",
+        numero: "0606060601"
+    }];
+
+function texteContact(contact) {
+    return contact.prenom + " " + contact.nom + " (" + contact.numero + ")";
+}
+function afficherListe() {
+    var elements = "";
+    for (i = 0; i < contacts.length; i++) {
+        elements += "<li>" + texteContact(contacts[i]) + "</li>";
+    }
+    $liste.innerHTML = elements;
+}
+function ajouter() {
+    contacts.push({
+        prenom: $prenom.value,
+        nom: $nom.value,
+        numero: $numero.value
+    });
+    afficherListe();
+    }
+    $ajouter.onclick = ajouter;
+    afficherListe();
+        
+    </script>
+                
+        </body>
+</html>
